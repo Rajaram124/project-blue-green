@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: spring-boot-example
-          image: 'rajaram890/rajapulibanti-bluegreen-deployment:v2'
+          image: 'rajaram890/rajapulibanti-bluegreen-deployment:v1'
           ports:
             - containerPort: 8080
 ---
