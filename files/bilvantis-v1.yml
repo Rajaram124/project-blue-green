@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-boot-example
+  labels:
+        app: spring-boot-example
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: spring-boot-example
+  template:
+    metadata:
+      labels:
+        app: spring-boot-example
+    spec:
+      containers:
+        - name: spring-boot-example
+          image: 'rajaram890/rajapulibanti-bluegreen-deployment:v1'
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bilvantis-version-1
+  labels:
+    app: spring-boot-example
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+      protocol: TCP
+  selector:
+    app: spring-boot-example
+  type: LoadBalancer
