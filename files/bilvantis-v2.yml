@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: spring-boot-example-1
-          image: 'kodekloud/webapp-color:v2'
+          image: 'rajaram890/rajapulibanti-bluegreen-deployment:v2'
           ports:
             - containerPort: 8080
 ---
