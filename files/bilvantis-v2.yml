@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-boot-example-1
+  labels:
+        app: spring-boot-example-1
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: spring-boot-example-1
+  template:
+    metadata:
+      labels:
+        app: spring-boot-example-1
+    spec:
+      containers:
+        - name: spring-boot-example-1
+          image: 'kodekloud/webapp-color:v2'
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bilvantis-version-2
+  labels:
+    app: spring-boot-example-1
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+      protocol: TCP
+  selector:
+    app: spring-boot-example-1
+  type: LoadBalancer
