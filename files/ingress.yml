@@ -15,7 +15,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: bilvantis-version-2
+            name: bilvantis-version-1
             port:
               number: 8080
       - path: /(.*)
